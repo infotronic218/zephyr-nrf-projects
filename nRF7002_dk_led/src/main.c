@@ -8,8 +8,9 @@ int main()
 {
     while(1)
     {
-         k_msleep(2000);
-         LOG_INF("Hello world !");
+        k_msleep(2000);
+        LOG_INF("Hello world !");
+        printk("hello world ");
     }
     return 0 ;
 }
