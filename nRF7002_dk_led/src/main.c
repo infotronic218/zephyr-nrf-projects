@@ -2,6 +2,7 @@
 #include<zephyr/logging/log.h>
 #include<zephyr/drivers/gpio.h>
 #include<zephyr/device.h>
+#include<zephyr/drivers/flash.h>
 LOG_MODULE_REGISTER(main, LOG_LEVEL_DBG);
 
 
