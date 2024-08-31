@@ -8,6 +8,7 @@ int main(){
     while(1)
     {
         k_msleep(5000);
+        
         LOG_INF("Hello friend ");
 
     }
