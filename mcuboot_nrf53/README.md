@@ -3,7 +3,7 @@
 * Enable the SHELL
 * Enable the File System
 * Enable the File System Shell
-```
+``` yml
 CONFIG_LOG=y
 CONFIG_SHELL=y
 CONFIG_FLASH=y
@@ -37,6 +37,20 @@ fs mount littlefs /lfs1
 ```
 
 ## Format the FILE System 
-``` yaml
+``` yml
 CONFIG_APP_WIPE_STORAGE=y
-``
+```
+
+# Enable flash shell for to have access to the flash command 
+``` yml
+CONFIG_FLASH_SHELL=y
+CONFIG_FLASH_SHELL_TEST_COMMANDS=y
+```
+
+## Can use the flash command to load data into a specific addresss
+
+```bash
+flash load <address> <size>
+```
+
+## Upload file in the file system
