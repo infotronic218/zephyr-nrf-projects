@@ -8,6 +8,6 @@ set(BOARD nrf7002dk/nrf5340/cpuapp)
 find_package(Zephyr)
 
 project(mcuboot)
-
+generate_inc_file_for_target(app data.json data.bin)
 
 target_sources(app PRIVATE src/main.c)
