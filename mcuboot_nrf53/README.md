@@ -54,3 +54,5 @@ flash load <address> <size>
 ```
 
 ## Upload file in the file system
+
+https://www.thevtool.com/mounting-littlefs-on-linux-machine/

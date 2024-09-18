@@ -5,3 +5,8 @@ build/**
 boot
 boot/**
 /boot/**
+fbuild
+fbuild/*
+fbuild/** 
+/fbuild
+/fbuild/*
