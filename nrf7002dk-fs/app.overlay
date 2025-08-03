@@ -1,4 +1,4 @@
-#include<dt-bindings/pinctrl/esp32s3-pinctrl.h>
+
 / {
     chosen{
         /*zephyr,console = &usb_serial;*/
@@ -22,13 +22,36 @@
 			cache-size = <64>;
 			lookahead-size = <32>;
 			block-cycles = <512>;
-			partition = <&storage_partition>;
+			partition = <&littlefs_partition>;
 			mount-point = "/lfs";
-            //automount;
+            automount;
             disk-access;
 		};
 	};
 
+};
+
+
+&mx25r64 {
+	status = "okay";
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		littlefs_partition: partition@0 {
+			label = "littlefs";
+			reg = <0x00000000 0x0004000>; /* 64 MB */
+			read-only;
+			status = "okay";
+		};
+		next_partition: partition@4000 {
+			label = "next";
+			reg = <0x00004000 0x03ff0000>; /* 64 MB */
+			read-only;
+			status = "okay";
+		};
+	};
 };
 
 
