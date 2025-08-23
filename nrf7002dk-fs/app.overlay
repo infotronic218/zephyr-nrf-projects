@@ -21,10 +21,10 @@
 			prog-size = <16>;
 			cache-size = <64>;
 			lookahead-size = <32>;
-			block-cycles = <512>;
+			block-cycles = <256>;
 			partition = <&littlefs_partition>;
 			mount-point = "/lfs";
-            automount;
+            //automount;
             disk-access;
 		};
 	};
@@ -45,9 +45,9 @@
 			read-only;
 			status = "okay";
 		};
-		next_partition: partition@4000 {
+		next_partition: partition@20000 {
 			label = "next";
-			reg = <0x00004000 0x03ff0000>; /* 64 MB */
+			reg = <0x000020000 0x03f00000>; /* 64 MB */
 			read-only;
 			status = "okay";
 		};

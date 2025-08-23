@@ -13,11 +13,13 @@ int main()
     while(1)
     {
 
-        return 0 ;
-        k_msleep(5000);
+     
+        k_msleep(1000);
         gpio_pin_toggle_dt(&led);
 
         //LOG_INF("Hello world");
+
+        
         
     }
 }
