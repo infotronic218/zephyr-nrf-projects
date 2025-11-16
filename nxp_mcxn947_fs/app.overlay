@@ -1,0 +1,42 @@
+/ {
+    chosen{
+        /*zephyr,console = &usb_serial;*/
+		/*zephyr,shell-uart = &usb_serial;*/
+        /*zephyr,flash-controller = &flash;*/
+        
+    };
+
+    fstab {
+		compatible = "zephyr,fstab";
+		status="okay";
+		lfs1: lfs1 {
+			compatible = "zephyr,fstab,littlefs";
+			status="okay";
+			read-size = <16>;
+			prog-size = <16>;
+			cache-size = <64>;
+			lookahead-size = <32>;
+			block-cycles = <512>;
+			partition = <&lfs_partition>;
+			mount-point = "/lfs";
+            automount;
+            //disk-access;
+		};
+	};
+
+};
+
+
+&w25q64jvssiq{
+	partitions {
+					compatible = "fixed-partitions"; 
+					#address-cells = < 0x1 >;        
+					#size-cells = < 0x1 >;           
+					lfs_partition: partition@623000 {
+						label = "storage";     
+						reg = < 0x623000 0x6000 >; 
+						phandle = < 0x27 >;     
+					};
+				};
+};
+
